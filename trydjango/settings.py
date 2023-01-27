@@ -14,13 +14,14 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+print( "BASE_DIR",BASE_DIR)
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-fti8=@(*t2-t=d41qsc93po31+e22oi&wk4i3mf_7p=u7m5qvs'
+SECRET_KEY = 'django-insecure-%58rc!y^46tc04k0u0&89)nqalw!cr=z@(ilk^dw#z34dyyd06'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -55,7 +56,8 @@ ROOT_URLCONF = 'trydjango.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/"templates"
+                 ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
