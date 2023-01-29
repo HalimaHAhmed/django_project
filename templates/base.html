@@ -1,16 +1,16 @@
 <!DOCTYPE html>
+
 <html>
-  <head> </head>
-  <body>
-    <h1>hello haliiimah</h1>
+    <head></head>
+    <body>
+        <h1>hello wolrd</h1>
 
-    <h3>this will replace</h3>
-    <ul>
-      {{ for x in my_list}}
-
-      <li>{{x}}</li>
-    </ul>
-
-    {% endfor %}
-  </body>
+        <form>
+            <input type="text" name="query" />
+            <input type="submit"
+        </form>
+        {% block content%}
+        <h3>this will be replaced</h3>
+        {% endblock content%}
+    </body>
 </html>
