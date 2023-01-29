@@ -4,28 +4,28 @@ from articles.models import Article
 from django.template.loader import render_to_string
 
 
-def home(request):
+def home(request,id=None, *args,**kwargs):
     # name = 'halima'
-    random_id = random.randint(1, 4)
+    # random_id = random.randint(1, 4)
 
-    # from databases
-    article_obj = Article.objects.get(id=random_id)
+    # # from databases
+    # article_obj = Article.objects.get(id=random_id)
 
-    my_list = [102, 13, 342, 1331, 213]
-    my_list_str = ""
-    for x in my_list:
-        my_list_str += f"number is{x}\n"
-    # article_title = article_obj.title
-    # article_content = article_obj.content
-    context = {
-        "my_list_str": my_list_str,
-        "title": article_obj.title,
-        "id":  article_obj.id,
-        "content": article_obj.content
+    # my_list = [102, 13, 342, 1331, 213]
+    # my_list_str = ""
+    # for x in my_list:
+    #     my_list_str += f"number is{x}\n"
+    # # article_title = article_obj.title
+    # # article_content = article_obj.content
+    # context = {
+    #     "my_list_str": my_list_str,
+    #     "title": article_obj.title,
+    #     "id":  article_obj.id,
+    #     "content": article_obj.content
 
+    
 
-
-    }
+    # }
 
     # html_string = f"""
 
@@ -40,12 +40,34 @@ def home(request):
     # tmpl = get_template("home.html")
     # tmp_string = tmpl.render(context=context)
 
-    html_string = render_to_string("home.html", context=context)
-    html_string = render_to_string("base.html", context=context)
+    # html_string = render_to_string("home.html", context=context)
+  
     # html_string = """
     # <h1>{title} (id:{id}!)</h1>
     # <p>{content}!</p>
     # """.format(**context)
+    
+    
+    
+    print(id)
+    name = 'halima'
+    random_id = random.randint(1,4)
+    #from database
+    article_obj = Article.objects.get(id=random_id)
+    article_queryset = Article.objects.all()
+    context = {
+        "object_list":article_queryset,
+        "object":article_obj,
+        "title":article_obj.title,
+        "id":article_obj.id,
+        "content":article_obj.content
+    }
+    
+    #from django template
+    
+    html_string = render_to_string("home.html",context=context)
+ 
+    
 
     return HttpResponse(html_string)
 
